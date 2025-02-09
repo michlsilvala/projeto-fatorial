@@ -4,6 +4,21 @@ package classe;
 public class ProjetoFatorial extends javax.swing.JFrame {
 
   
+    // funcao calcular fatorial
+    static int calculoFatorial(int numeroParametro){
+        int numero = numeroParametro;
+        int fatorial = 1;
+        
+        int contador = numero;
+        // CALCULANDO
+        while(contador >= 1){
+            fatorial*=contador;
+            contador--;
+        }
+        
+        return fatorial;
+        
+    }
     public ProjetoFatorial() {
         initComponents();
     }
@@ -74,23 +89,13 @@ public class ProjetoFatorial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void controleValorStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_controleValorStateChanged
-        // ESCOPO DO QUER ACONTECE AO MUDAR VALOR CONTROLE
-        // CALCULO DO FATORIAL E MUDANÇA VALOR DO LABEL
-        
-        // PEGANDO VALOR
-        
+    
+        // pegando valor 
         int valorControle = Integer.parseInt(controleValor.getValue().toString());
         
-        int fatorial = 1;
-        
-        int contador = valorControle;
-        // CALCULANDO
-        while(contador >= 1){
-            fatorial*=contador;
-            contador--;
-        }
-        // MODIFICANDO
-        lblValor.setText(Integer.toString(fatorial));
+                
+        // mandando para funcao e alterando na tela
+        lblValor.setText(Integer.toString(calculoFatorial(valorControle)));
         
         
     }//GEN-LAST:event_controleValorStateChanged
